@@ -16,6 +16,10 @@ function validParentheses(parens) {
     }
   });
 
+  if (countOpenParentheses !== countCloseParentheses) {
+    isValid = false; 
+  }
+
   return isValid;
 }
 
