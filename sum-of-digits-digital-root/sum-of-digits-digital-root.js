@@ -5,31 +5,34 @@
 function digital_root(n) {
   
   //Convert number to array of string integers
-  let stringArray = Array.from(String(n));
+  let stringArray = [...String(n)];
 
   let sum = 0;
 
-  while (sum === 0 || sum > 9) {
+  //Add all integers in the array together while the sum > 9
+  do {
 
     sum = 0;
 
-    //Add all the integers in the array together
     for (const stringInteger of stringArray) {
       const integer = Number(stringInteger);
       sum = sum + integer;
     }
-    
-    stringArray = Array.from(String(sum));
 
-  }
+    stringArray = [...String(sum)];
+
+  } while (sum > 9);
   
   return sum;
 }
 
 //TEST CASES
-console.log(digital_root(17));
-console.log(digital_root(2324));
+console.log(digital_root(16));
+console.log(digital_root(456));
 console.log(digital_root(12345));
 console.log(digital_root(11111111));
+console.log(digital_root(0));
+
+
 
 
